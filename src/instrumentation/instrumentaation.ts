@@ -11,7 +11,7 @@ import {
 import { MongooseInstrumentation } from "@opentelemetry/instrumentation-mongoose";
 
 // Enable diagnostic logging
-diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.DEBUG);
+//diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.DEBUG);
 
 export const instrumentationInitializetion = () => {
   console.log("OpenTelemetry started here");

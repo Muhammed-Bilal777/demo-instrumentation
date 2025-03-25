@@ -1,16 +1,22 @@
 version: "3.8"
 services:
   app:
+    container_name: my-app
     build: .
     ports:
       - "3000:3000"
     volumes:
-      - ./src:/usr/src/app/src
       - /usr/src/app/node_modules
     environment:
       - NODE_ENV=production
       - MONGO_URI=mongodb://mongo:27017/mydb
       - ZIPKIN_ENDPOINT=http://zipkin:9411/api/v2/spans
+    deploy:
+      resources:
+        limits:
+          cpus: "6" # Allocate 16 CPU cores
+          memory: 16G
+
     depends_on:
       - mongo
       - zipkin
