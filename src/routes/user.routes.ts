@@ -6,6 +6,7 @@ const router = Router();
 const userController = new UserController();
 
 router.post("/register", userController.register); // No binding needed
+router.get("/users", userController.getUsers);
 router.get("/test", (req, res) => {
   console.log("Test route hitted");
 

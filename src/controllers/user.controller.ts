@@ -16,6 +16,20 @@ export class UserController {
       res.status(500).json({ message: "Error creating user", error });
     }
   };
+
+  getUsers = async (request: Request, response: Response) => {
+    try {
+      const users = await this.userService.getAllUsers();
+      response.status(200).json({
+        users: users,
+      });
+    } catch (error) {
+      console.log(error);
+      response.status(400).json({
+        message: "user not found",
+      });
+    }
+  };
 }
 
 export default UserController;
