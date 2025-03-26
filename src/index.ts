@@ -19,6 +19,7 @@ db.connect();
 // Routes
 app.use("/api/users", userRoutes);
 
+//checking memory utilization
 setInterval(() => {
   const memoryUsage = process.memoryUsage();
   console.log(`Heap Total: ${memoryUsage.heapTotal / 1024 / 1024} MB`);
