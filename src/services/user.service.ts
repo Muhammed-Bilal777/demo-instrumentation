@@ -12,7 +12,9 @@ export class UserService implements IUserService {
     });
     return await newUser.save();
   }
-
+  async getAllUsers(): Promise<IUser | null | any> {
+    return await UserModel.find();
+  }
   async findUserByEmail(email: string): Promise<IUser | null> {
     return await UserModel.findOne({ email });
   }
